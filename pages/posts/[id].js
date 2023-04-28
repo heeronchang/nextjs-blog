@@ -8,13 +8,13 @@ export async function getStaticPaths() {
   const paths = getAllPostIds();
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 }
 
 export async function getStaticProps({ params }) {
   const postData = await getPostData(params.id);
-console.log(postData);
+  console.log('postData:', postData);
   return {
     props: {
       postData,
